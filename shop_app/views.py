@@ -25,7 +25,7 @@ def add_item(request):
         product_id = request.data.get("product_id")
 
         cart, created = Cart.objects.get_or_create(cart_code = cart_code)
-        product = Product.object.get(id=product_id)
+        product = Product.objects.get(id=product_id)
 
         cartitem, created = CartItem.objects.get_or_create(cart=cart, product=product)
         cartitem.quntity = 1
@@ -45,7 +45,7 @@ def product_in_cart(request):
     cart = Cart.objects.get(cart_code=cart_code)
     product = Product.objects.get(id=product_id)
 
-    product_exists_in_cart = CartItem.objects.filter(cart=cart, product=product).exist()
+    product_exists_in_cart = CartItem.objects.filter(cart=cart, product=product).exists()
 
     return Response({'product_in_cart': product_exists_in_cart})
 
