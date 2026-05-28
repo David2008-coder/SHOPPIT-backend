@@ -62,3 +62,9 @@ class SimpleCartSerializer(serializers.ModelSerializer):
     num_of_items = sum([item.quantity for item in cart.items.all()])
     return num_of_items
   
+
+
+# class USerSerializer(serializers.ModelSerializer):
+#   class Meta: 
+#   model = get_user_model()
+#   fields = ["id","username", "first_name", "last_name", "email", "city", "state", "address", "phone", "items"]
