@@ -6,8 +6,12 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from decimal import Decimal
+import uuid
 
 # Create your views here.
+
+BASE_URL = "http://localhost:5173"
 
 @api_view(["GET"])
 def products(request):
@@ -105,3 +109,17 @@ def user_info(request):
     user = request.user
     serializer = UserSerializer(user)
     return Response(serializer.data)
+
+def  initiate_payment(request):
+    if request.user:
+        try:
+            tx_ref = str(uuid.uuid())
+            cart_code = request.data.get("cart_code")
+            cart = Cart.objects.get(cart_code=cart_code)
+            user = request.user
+
+
+            amount = sum([item.quantitiy * item.product.price for item in cart.items.all()])
+            tax = Decimal("4.00")
+            currency = "USD"
+            redirect_url = f"{BASE_URL}/payment-status/"

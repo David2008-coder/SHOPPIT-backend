@@ -56,3 +56,9 @@ class CartItem(models.Model):
   def __str__(self):
     return f"{self.quantity} X {self.product.name} in cart {self.cart.id}"
   
+
+
+
+class Transaction(models.Model):
+    ref = models.CharField(max_length=255, unique=True)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='transaction')
