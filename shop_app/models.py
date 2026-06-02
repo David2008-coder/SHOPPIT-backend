@@ -58,7 +58,15 @@ class CartItem(models.Model):
   
 
 
-
 class Transaction(models.Model):
     ref = models.CharField(max_length=255, unique=True)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='transaction')
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='transactions')
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    currency = models.CharField(max_length=10, default='NGN')
+    status = models.CharField(max_length=20, default='pending')  # Can be pending, compl
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Transaction {self.ref} - {self.status}"

@@ -161,3 +161,6 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60)
 }
+
+
+FLUTTER_SECRET_KEY = "FLWSECK_TEST-66c4e3bbbeb84b4bffd9f36baeada10a-X"
