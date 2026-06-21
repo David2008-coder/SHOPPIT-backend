@@ -1,3 +1,5 @@
+#!/user/bin/env bash
+# exit on error
 set -o errexit #exit errors 
 
 pip install -r requirments.txt
