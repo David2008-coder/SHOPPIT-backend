@@ -3,8 +3,6 @@
 set -o errexit
 
 # Step into the folder containing your code and requirements
-cd shoppit
-
 pip install -r requirements.txt
 python manage.py collectstatic --no-input
 python manage.py migrate
