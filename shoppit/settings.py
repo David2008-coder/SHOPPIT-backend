@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6nj8vkm#bur#$==mqxb48whxoa1$w5&8so99gqrrqvm&vxv-j1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["shoppit-backend-vsap.onrender.com", "localhost", "127.0.0.1"]
 
@@ -68,6 +68,7 @@ CORS_ALLOWED_ORIGINS = [
 "http://localhost:5173",
 "http://localhost:5174",
 "http://localhost:5175",
+"https://newshop-gfr3.onrender.com"
 ]
 
 CORS_ALLOWED_HEADERS = [
