@@ -190,3 +190,14 @@ PAYPAL_CLIENT_SECRET = "EKXqlt5A2l2scxeXX3mlnANmDnPPvTX0agAkFaJT18FlCR1PvSVmbclS
 PAYPAL_MODE =  "sandbox"
 
 REACT_BASE_URL = os.getenv("REACT_BASE_URL", "http://localhost:5173")
+
+
+
+
+
+import os
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+WHITENOISE_INDEX_FILE = True
