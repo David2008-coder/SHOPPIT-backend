@@ -32,7 +32,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6nj8vkm#bur#$==mqxb48whxoa1$w5&8so99gqrrqvm&vxv-j1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True
+DEBUG = True
 
 # ALLOWED_HOSTS = ["shoppit-backend-vsap.onrender.com", "localhost", "127.0.0.1"]
 ALLOWED_HOSTS = [
@@ -159,8 +159,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_ROOT = BASE_DIR / "staticfiles"
-MEDIA_URL = 'img/'
-MEDIA_ROOT = BASE_DIR/"media"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
